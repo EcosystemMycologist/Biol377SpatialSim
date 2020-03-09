@@ -5,9 +5,6 @@
 # I. Dickie,  J. Tylianakis, D. Stouffer & M. Turnbull, School of Biological Sciences, University of Canterbury NZ
 # CC-BY license: https://creativecommons.org/licenses/by/3.0/nz/
 
-
-
-
 #################################
 ## Model 1: Predator-Prey
 #################################
@@ -19,10 +16,9 @@
 ##  Load library (only need to do this once!)
 #################################
 
-## If the library is not already installed, you need to run the next 2 lines
+## If the library is not already installed, you need to run this block:
 chooseCRANmirror() #choose a location near NZ. Australia works well when it isn't on fire.
 install.packages("simecol")
-
 #load the library
 library(simecol)
 
@@ -32,12 +28,11 @@ library(simecol)
 
 remove(list=ls())
 
-
 #################################
 ##  Set general parameters. These are constants -- they don't change value during the simulation,
 #################################
 
-gridSize <- 160        # Size of the spatial simulation in grid cells
+gridSize <- 150        # Size of the spatial simulation in grid cells
 burnIn <-  0           # Number of time steps to run before saving output
 maxTime <- 2000        # Total time steps
 
@@ -205,14 +200,16 @@ map0[sample(1:gridSize,nRoads),] <- 3                                           
 
 image(map0, col=colVec)                                                          # Plot the fragmented map
 
-## Now re-run the model (step "Run model") and re-do your plots (step "Plot model output")
+## Now re-run the model (starting at step "Run model") and re-do your plots (step "Plot model output")
 
 #################################
 ## Variation 1.1: Why did the chicken cross the road?
 #################################
 
-#   - If you wish to allow dispersal across roads, you could use a larger wdist with small values 
-#     in the outer neighbourhood. Try changing this setting, then run model again.
+# If you wish to allow dispersal across roads, you could use a larger wdist with small values 
+# in the outer neighbourhood. Try changing this setting, then run model again.
+# (Again, starting at step "Run model" and re-doing your plots (step "Plot model output")
+
 wdist <- matrix(c(0,  0, .02,  0,  0,
                   0, .5,  1, .5,  0, 
                   .02, 1,  1,  1, .02, 
